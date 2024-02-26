@@ -1,0 +1,6 @@
+streamlit
+pandasai
+pandasai[connectors]
+pandasai[langchain]
+openai
+llama-cpp-python
