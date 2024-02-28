@@ -92,13 +92,16 @@ def main():
                         #     st.dataframe(data_object["data"])
                         if isinstance(data_object["data"], str) and OUTPUT_GPAPH_FOLDER in data_object["data"]:
                             st.image(data_object["data"])
+        with open('Deskripsi Kolom.txt', 'r') as file:
+            metadata = file.read()
         if prompt := st.chat_input("Ask me about data..."):
             st.session_state.messages.append({"question":"user","answer":prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
             with st.chat_message("assistant"):
                 # change to MyPandasAgent if want to use multi table conversation (less acc so far)
-                df = SmartDataframe(dataframe,description="Deskripsi kolom: domisili_kota_kabupaten = nama kota atau kabupaten anggota komunitas tinggal, kota = kota atau kabupaten sekolah berada, kualifikasi = kualifikasi pendidikan terakhir anggota komunitas",
+                # description="Deskripsi kolom: domisili_kota_kabupaten = nama kota atau kabupaten anggota komunitas tinggal, kota = kota atau kabupaten sekolah berada, kualifikasi = kualifikasi pendidikan terakhir anggota komunitas",
+                df = SmartDataframe(dataframe, description=metadata,
                                    config={"llm": llm, "save_charts_path": OUTPUT_GPAPH_FOLDER,
                     "save_charts": True,                   
                     # "response_parser": StreamlitResponse,
@@ -110,6 +113,7 @@ def main():
                         "response_parser": MyResponseParser
                     })
                 # "6. if the question is related to a previous question, relate the answer to the context of the previous question-answer.\n" \
+                
                 question_prompt = "Before answering the question, the following requirements apply to the answer format:\n" \
                     "1. If it's not returning data, please answer the corresponding question in Bahasa Indonesia.\n" \
                     "2. Always define and load the dataframe first.\n" \
