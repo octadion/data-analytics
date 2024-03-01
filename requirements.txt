@@ -3,4 +3,5 @@ pandasai
 pandasai[connectors]
 pandasai[langchain]
 openai
-llama-cpp-python
+psycopg2
+python-dotenv

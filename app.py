@@ -1,5 +1,5 @@
 import streamlit as st
-from pandasai.connectors import PostgreSQLConnector, MySQLConnector
+from pandasai.connectors import PostgreSQLConnector
 from pandasai import SmartDataframe, SmartDatalake
 from pandasai.llm import OpenAI
 import pandas as pd
@@ -8,12 +8,30 @@ from pandasai.responses import StreamlitResponse
 import os
 from PIL import Image
 # from langchain.llms import LlamaCpp
-from sqlalchemy import create_engine
+import psycopg2
 from pandasai.prompts import AbstractPrompt
 from agent import MyPandasAgent, MyCorrectErrorPrompt, MyResponseParser
 from utils import gen_json_response
 from pandasai.helpers.openai_info import get_openai_callback
+from dotenv import load_dotenv
+
+load_dotenv()
+
 llm = OpenAI(api_token="")
+user = os.getenv('DB_USER')
+password = os.getenv('DB_PASS')
+host = os.getenv('DB_HOST')
+port = os.getenv('DB_PORT')
+database = os.getenv('DB_NAME')
+sslmode = os.getenv('DB_SSLMODE')
+
+conn = psycopg2.connect(
+    dbname=database,
+    user=user,
+    password=password,
+    host=host,
+    port=port
+)
 
 def parse_output(result, last_code, explanation):
     '''
@@ -61,18 +79,9 @@ def main():
 
     if mode == 'SQL':
         st.subheader('SQL')
-        engine = create_engine('mysql+pymysql://root:@localhost:3306/komunitas_anggota_jawa_timur')
-        dataframe = pd.read_sql('SELECT * FROM anggota', con=engine)
-        anggota_connector = MySQLConnector(
-            config={
-                "host": "localhost",
-                "port": 3306,
-                "database": "komunitas_anggota_jawa_timur",
-                "username": "root",
-                "password": "",
-                "table": "anggota",
-            },
-        )
+        dataframe = pd.read_sql('SELECT * FROM komunitas_anggota_jatim.anggota', conn)
+        conn.close()
+
         init_graph_folder()
         st.session_state
         if "data_objects" not in st.session_state:
@@ -84,12 +93,6 @@ def main():
                 st.markdown(message["answer"])
                 for data_object in st.session_state.data_objects:
                     if data_object["message"] == message:
-                        # if isinstance(data_object["data"], pd.DataFrame):
-                        #     st.dataframe(data_object["data"])
-                        # elif isinstance(data_object["data"], pd.Series):
-                        #     st.dataframe(data_object["data"])
-                        # elif isinstance(data_object["data"], SmartDataframe):
-                        #     st.dataframe(data_object["data"])
                         if isinstance(data_object["data"], str) and OUTPUT_GPAPH_FOLDER in data_object["data"]:
                             st.image(data_object["data"])
         with open('Deskripsi Kolom.txt', 'r') as file:
@@ -160,11 +163,18 @@ def main():
             for file_name in file_input:
                 data_file_temp = pd.read_csv(file_name, error_bad_lines=False)
                 st.session_state.files.append(data_file_temp)
+            st.session_state
+            if "data_objects" not in st.session_state:
+                st.session_state.data_objects = []
             if 'messages' not in st.session_state:
                 st.session_state.messages = []
             for message in st.session_state.messages:
                 with st.chat_message(message["question"]):
                     st.markdown(message["answer"])
+                    for data_object in st.session_state.data_objects:
+                        if data_object["message"] == message:
+                            if isinstance(data_object["data"], str) and OUTPUT_GPAPH_FOLDER in data_object["data"]:
+                                st.image(data_object["data"])
             if prompt := st.chat_input("Ask me about data..."):
                 st.session_state.messages.append({"question":"user","answer":prompt})
                 with st.chat_message("user"):
@@ -172,7 +182,14 @@ def main():
                 with st.chat_message("assistant"):
                     df = SmartDatalake(st.session_state.files, config={"llm": llm, "save_charts_path": OUTPUT_GPAPH_FOLDER,
                     "save_charts": True,                   
-                    "response_parser": StreamlitResponse})
+                    # "response_parser": StreamlitResponse,
+                    "enable_cache": False,
+                    # "enforce_privacy": True,
+                    "custom_whitelisted_dependencies": ["pyecharts"],
+                    "custom_prompts": {
+                        "correct_error": MyCorrectErrorPrompt(),},
+                        "response_parser": MyResponseParser
+                    })
                     answer = df.chat(prompt)
                     message_placeholder = st.empty()
                     if isinstance(answer, (SmartDataframe, pd.DataFrame, pd.Series)):
