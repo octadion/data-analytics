@@ -190,7 +190,15 @@ def main():
                         "correct_error": MyCorrectErrorPrompt(),},
                         "response_parser": MyResponseParser
                     })
-                    answer = df.chat(prompt)
+                    question_prompt = "Before answering the question, the following requirements apply to the answer format:\n" \
+                    "1. If it's not returning data, please answer the corresponding question in Bahasa Indonesia.\n" \
+                    "2. Always define and load the dataframe first.\n" \
+                    "3. Interpret the prompt first, then adjust it to the existing metadata dataframes.\n" \
+                    "4. When generating code, keep using the original data and do not use mock data. When filtering data, ALWAYS USE the LIKE method or str.contains, DONT USE exact match.\n" \
+                    "5. If the question is related to drawing, always save the plots and use the saved plots.\n" \
+                    "Based on the above requirements, please answer the following question:\n"
+                    question = f"{question_prompt}{prompt}"
+                    answer = df.chat(question)
                     message_placeholder = st.empty()
                     if isinstance(answer, (SmartDataframe, pd.DataFrame, pd.Series)):
                         message_placeholder.dataframe(answer, use_container_width= True, hide_index= True)
