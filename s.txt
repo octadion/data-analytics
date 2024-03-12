@@ -1,0 +1,7 @@
+streamlit
+pandasai
+pandasai[connectors]
+pandasai[langchain]
+openai
+psycopg2
+python-dotenv

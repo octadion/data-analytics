@@ -66,6 +66,7 @@ It fails with the following error:
 Fix the python code above and return the new python code:
 If there is an error 'File name too long: '<!DOCTYPE html>', help me change the type of 'result' to string
 If there is an error 'Can only use .dt accessor', please convert the processing column to datetime type before the logic
+If there is an error 'All objects passed were None', please refer or use the initial code that has been generated.
         '''
         return prompt
 

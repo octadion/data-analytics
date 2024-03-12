@@ -1,99 +1,100 @@
-Deskripsi kolom:
-uuid = ID data.
-captured_at = Waktu ketika data ditangkap atau dikumpulkan.
-anggota_id = ID unik yang diberikan kepada setiap anggota.
-nopes = Nomor peserta.
-nuptk = Nomor Unik Pendidik dan Tenaga Kependidikan, digunakan untuk mengidentifikasi guru di Indonesia.
-nuks = Nomor Unik Kepala Sekolah, digunakan untuk mengidentifikasi kepala sekolah di Indonesia.
-email_login = Alamat email yang digunakan untuk login.
-nama_gtk = Nama Guru dan Tenaga Kependidikan.
-foto_ptk = Foto dari Pendidik dan Tenaga Kependidikan.
-asal_sekolah = Nama atau identifikasi dari sekolah asal.
-status_satminkal = Status administrasi kalender.
-nama_komunitas = Nama dari komunitas yang relevan.
-no_sk = Nomor Surat Keputusan.
-tgl_sk = Tanggal Surat Keputusan dikeluarkan.
-tipe_komunitas = Jenis atau kategori dari komunitas.
-mapel_ukg = Mata pelajaran yang diujikan dalam Uji Kompetensi Guru.
-jenjang = Tingkat atau level pendidikan, seperti SD, SMP, SMA.
-nopes_ketua = Nomor peserta ketua.
-nama_ketua = Nama dari ketua.
-alamat = Alamat fisik atau lokasi.
-kecamatan = Subdistrik atau kecamatan.
-kota = kota atau kabupaten sekolah berada.
-provinsi = Provinsi.
-komunitas_id = ID unik yang diberikan kepada setiap komunitas.
-is_negeri = Menunjukkan apakah sekolah adalah sekolah negeri atau swasta.
-status_anggota = Status keanggotaan seseorang dalam suatu grup atau organisasi.
-jabatan_komunitas = Posisi atau peran seseorang dalam komunitas.
-kelamin = Jenis kelamin individu, L = laki-laki; P = perempuan.
-umur = Umur individu dalam tahun.
-simpkb_email = Alamat email yang terdaftar di SIMPKB.
-simpkb_no_hp = Nomor handphone yang terdaftar di SIMPKB.
-dapodik_email = Alamat email yang terdaftar di Dapodik (Data Pokok Pendidikan).
-dapodik_no_hp = Nomor handphone yang terdaftar di Dapodik.
-mapel_ukg_ptk = Mata pelajaran yang diujikan dalam Uji Kompetensi Guru untuk Pendidik dan Tenaga Kependidikan.
-tugas = Tugas atau tanggung jawab individu.
-jenis_ptk = Jenis Pendidik dan Tenaga Kependidikan, seperti guru, kepala sekolah, dll.
-kualifikasi = Kualifikasi atau tingkat pendidikan seseorang.
-pegawai = Status pegawai, seperti PNS, honorer, dll.
-golongan = Golongan atau tingkat dalam struktur organisasi atau birokrasi.
-alamat_sekolah = Alamat fisik sekolah.
-dapodik_ptk_id = ID unik Pendidik dan Tenaga Kependidikan dalam Dapodik.
-longitude = Koordinat bujur dari lokasi geografis.
-latitude = Koordinat lintang dari lokasi geografis.
-no_kk = Nomor Kartu Keluarga.
-nik = Nomor Induk Kependudukan, nomor identifikasi penduduk di Indonesia.
-nip = Nomor Induk Pegawai, nomor identifikasi pegawai negeri sipil di Indonesia.
-dapodik_no_hp_operator = Nomor handphone operator yang terdaftar di Dapodik.
-nama_ibu_kandung = Nama ibu kandung individu.
-npwp = Nomor Pokok Wajib Pajak, nomor identifikasi pajak di Indonesia.
-nama_npwp = Nama yang terdaftar pada NPWP.
-domisili_alamat_jalan = Alamat jalan individu tinggal sekarang.
-domisili_nama_dusun = Nama dusun individu tinggal sekarang.
-domisili_kode_pos = Kode pos individu tinggal sekarang.
-domisili_rt = Rukun Tetangga individu tinggal sekarang.
-domisili_rw = Rukun Warga individu tinggal sekarang.
-domisili_desa_kelurahan = Desa atau kelurahan individu tinggal sekarang.
-domisili_kecamatan = Kecamatan individu tinggal sekarang.
-domisili_kota_kabupaten = Kota atau kabupaten individu tinggal sekarang.
-domisili_provinsi = Provinsi individu tinggal sekarang.
-status_keaktifan = Status keaktifan individu, seperti aktif, tidak aktif, cuti, dll.
-agama = Agama individu.
-status_perkawinan = status perkawinan atau pernikahan anggota komunitas status janda untuk perempuan status duda untuk laki-laki
-kewarganegaraan = Kewarganegaraan individu.
-niy_nigk = Nomor Induk Yayasan / Nomor Induk Guru dan Karyawan, nomor identifikasi untuk guru dan karyawan di yayasan pendidikan.
-npsn = Nomor Pokok Sekolah Nasional, nomor identifikasi untuk sekolah di Indonesia.
-sekolah_id = ID unik yang diberikan kepada setiap sekolah.
-instansi_id = ID unik yang diberikan kepada setiap instansi.
-dapodik_sekolah_id = ID unik sekolah dalam Dapodik.
-is_aktif_sekolah = Menunjukkan apakah sekolah masih aktif atau tidak.
-is_aktif = Menunjukkan apakah individu masih aktif atau tidak.
-nrg = Nomor Registrasi Guru, nomor identifikasi untuk guru yang telah disertifikasi.
-thn_sertifikasi = Tahun sertifikasi guru.
-mapel_sertifikasi = Mata pelajaran dalam sertifikasi guru.
-last_access = Waktu akses terakhir ke sistem.
-status_aktif = Status keaktifan individu, seperti aktif, tidak aktif, cuti, dll.
-status_sinkron = Status sinkronisasi data, seperti sinkron, tidak sinkron, dll.
-jenis_ptk_kelompok = Jenis kelompok Pendidik dan Tenaga Kependidikan.
-mapel_ajar_dapodik = Mata pelajaran yang diajarkan menurut Dapodik.
-k_kota = Kode kota.
-instansi_tugas = Instansi tempat individu bertugas.
-instansi_npsn_tugas = NPSN instansi tempat individu bertugas.
-paspor_id = ID paspor individu.
-bentuk_pendidikan = Bentuk atau jenis pendidikan, seperti formal, nonformal, informal, dll.
-sumber_data = Sumber data.
-kota_status_3t = Status 3T (Terdepan, Terluar, Tertinggal) kota.
-jenis_keluar = Jenis keluar, mungkin merujuk ke alasan individu keluar dari sekolah atau pekerjaan.
-tmp_lahir = Tempat lahir individu.
-tgl_lahir = Tanggal lahir individu.
-status_aktif_sekolah = Status keaktifan sekolah, seperti aktif, tidak aktif, dll.
-sektor_vokasi = Sektor vokasi, mungkin merujuk ke bidang keahlian atau spesialisasi dalam pendidikan vokasi.
-naungan = Naungan atau afiliasi, mungkin merujuk ke organisasi atau lembaga yang mengawasi atau mendukung.
-sekolah_akreditasi = Akreditasi sekolah, mungkin merujuk ke tingkat atau status akreditasi yang diberikan oleh lembaga akreditasi.
-lembaga_akreditasi = Lembaga yang memberikan akreditasi.
-tahun_terdaftar = Tahun individu terdaftar, mungkin merujuk ke tahun pendaftaran di sekolah atau pekerjaan.
-asal_sekolah_jenis_naungan = Jenis naungan atau afiliasi dari sekolah asal. Ini bisa merujuk ke jenis organisasi atau lembaga yang mengawasi atau mendukung sekolah asal.
-asal_sekolah_naungan = Naungan atau afiliasi dari sekolah asal. Ini bisa merujuk ke organisasi atau lembaga yang mengawasi atau mendukung sekolah asal.
-status_sertifikasi = Status sertifikasi individu, seperti apakah mereka sudah disertifikasi atau belum.
-status_nuptk = Status NUPTK (Nomor Unik Pendidik dan Tenaga Kependidikan) individu, seperti apakah mereka sudah memiliki NUPTK atau belum.
+field_descriptions = {
+    'uuid': 'Identifier unik untuk setiap entitas dalam dataset (contoh: 3273e217-f28b-4d2c-9593-8ea97d1f6f32)',
+    'captured_at': 'Waktu atau timestamp ketika data diambil (contoh: \'8326858679\')',
+    'anggota_id': 'ID anggota dalam format float64 (contoh: .nan, 1412827.0)',
+    'nopes': 'Nomor Peserta (contoh: \'5003658808\')',
+    'nuptk': 'Nomor Unik Pendidik dan Tenaga Kependidikan dalam format float64 (contoh: .nan, 36761664200013.0)',
+    'nuks': 'Nomor Unik Komunitas Sekolah (contoh: \'\', \'19023L0010503232056102\')',
+    'email_login': 'Alamat email untuk login (contoh: g-cxt41@yahoo.com)',
+    'nama_gtk': 'Nama guru atau tenaga kependidikan (contoh: ISMIATI, YULITA DEWI PUSPARINA)',
+    'foto_ptk': 'Nomor identifikasi untuk foto guru atau tenaga kependidikan (contoh: \'8436182719\')',
+    'asal_sekolah': 'Nama sekolah asal guru atau tenaga kependidikan (contoh: SD NEGERI KAWU 4)',
+    'status_satminkal': 'Status keanggotaan dalam Satminkal (contoh: Satminkal, Bukan Satminkal)',
+    'nama_komunitas': 'Nama komunitas atau gugus dalam format teks (contoh: \'\', \'MGMP SMK - Kimia - SMK (Produktif) - SMK (Produktif)\')',
+    'no_sk': 'Nomor Surat Keputusan (contoh: \'800/2830/408.37.06/2008\')',
+    'tgl_sk': 'Tanggal Surat Keputusan dalam format YYYY-MM-DD (contoh: \'2017-06-21\')',
+    'tipe_komunitas': 'Tipe komunitas (contoh: KKKS SD, KKG SLB, MGMP SMA)',
+    'mapel_ukg': 'Mata pelajaran yang diambil dalam UKG (contoh: Seni Budaya Tari, Bahasa Inggris)',
+    'jenjang': 'Jenjang pendidikan (contoh: SMA, SMP, SMK)',
+    'nopes_ketua': 'Nomor Peserta Ketua Komunitas dalam format float64 (contoh: .nan, 201511032620.0)',
+    'nama_ketua': 'Nama ketua komunitas (contoh: MOH. JURI)',
+    'alamat': 'Alamat rumah atau tempat tinggal (contoh: Rt 08 Rw 02, Jati)',
+    'kecamatan': 'Nama kecamatan tempat tinggal (contoh: Bangorejo)',
+    'kota': 'Nama kota atau kabupaten tempat tinggal (contoh: Kota Mojokerto)',
+    'provinsi': 'Nama provinsi tempat tinggal (contoh: Jawa Timur)',
+    'komunitas_id': 'ID komunitas dalam format float64 (contoh: 38926.0)',
+    'is_negeri': 'Status apakah anggota berasal dari sekolah negeri atau swasta (contoh: NEGERI, SWASTA)',
+    'status_anggota': 'Status keanggotaan (contoh: Belum Tergabung, Tergabung)',
+    'jabatan_komunitas': 'Jabatan dalam komunitas (contoh: Bendahara Komunitas, Ketua Komunitas)',
+    'kelamin': 'Jenis kelamin (contoh: P, L)',
+    'umur': 'Usia anggota dalam format int64 (contoh: 34)',
+    'simpkb_email': 'Alamat email untuk SIM PKB (contoh: 855ql842n6@gmail.com)',
+    'simpkb_no_hp': 'Nomor handphone untuk SIM PKB (contoh: \'7020344991\')',
+    'dapodik_email': 'Alamat email untuk Dapodik (contoh: zxcr6qlj@gmail.com)',
+    'dapodik_no_hp': 'Nomor handphone untuk Dapodik dalam format float64 (contoh: .nan, 81230207872.0)',
+    'mapel_ukg_ptk': 'Mata pelajaran yang diambil dalam UKG untuk PTK (contoh: Matematika, Akomodasi Perhotelan)',
+    'tugas': 'Jabatan atau tugas anggota (contoh: PLT Kepala Sekolah, Kepala Sekolah)',
+    'jenis_ptk': 'Jenis PTK (contoh: Guru Mapel, Guru TIK)',
+    'kualifikasi': 'Kualifikasi pendidikan (contoh: S2, D1, Paket C)',
+    'pegawai': 'Status kepegawaian (contoh: Tenaga Honor Sekolah)',
+    'golongan': 'Golongan pegawai (contoh: IVb, IX, III/d)',
+    'alamat_sekolah': 'Alamat sekolah tempat anggota bekerja (contoh: Alastlogo)',
+    'dapodik_ptk_id': 'ID Dapodik untuk PTK (contoh: 8ADAEAFC-7B21-E211-8821-31304FD3D4E3)',
+    'longitude': 'Koordinat longitude dalam format float64 (contoh: .nan, 111.1871)',
+    'latitude': 'Koordinat latitude dalam format float64 (contoh: .nan, -8.126610205563)',
+    'no_kk': 'Nomor Kartu Keluarga dalam format float64 (contoh: 3507141601200008.0)',
+    'nik': 'Nomor Induk Kependudukan (contoh: 0289 0306 0743 2412)',
+    'nip': 'Nomor Induk Pegawai (contoh: \'196607082001011021\', \'-\', \'198908012022212008\')',
+    'dapodik_no_hp_operator': 'Nomor handphone operator untuk Dapodik (contoh: Kartu Matrix)',
+    'nama_ibu_kandung': 'Nama ibu kandung anggota (contoh: Wardah)',
+    'npwp': 'Nomor Pokok Wajib Pajak (contoh: \'921195939647000\')',
+    'nama_npwp': 'Nama pemilik NPWP (contoh: IMRO\'ATU SHOLIHAH)',
+    'domisili_alamat_jalan': 'Alamat jalan tempat tinggal anggota (contoh: Lumutan)',
+    'domisili_nama_dusun': 'Nama dusun tempat tinggal anggota (contoh: Winong)',
+    'domisili_kode_pos': 'Kode pos tempat tinggal anggota dalam format float64 (contoh: 63173.0)',
+    'domisili_rt': 'Nomor RT tempat tinggal anggota dalam format float64 (contoh: .nan, 38.0)',
+    'domisili_rw': 'Nomor RW tempat tinggal anggota dalam format float64 (contoh: 22.0)',
+    'domisili_desa_kelurahan': 'Nama desa atau kelurahan tempat tinggal anggota (contoh: GONDANG)',
+    'domisili_kecamatan': 'Nama kecamatan tempat tinggal anggota (contoh: Kec. Dander)',
+    'domisili_kota_kabupaten': 'Nama kota atau kabupaten tempat tinggal anggota (contoh: Kab. Pasuruan)',
+    'domisili_provinsi': 'Nama provinsi tempat tinggal anggota (contoh: Prov. Jawa Timur)',
+    'status_keaktifan': 'Status keaktifan dari Dapodik (contoh: Aktif)',
+    'agama': 'Agama anggota (contoh: Katholik, Islam)',
+    'status_perkawinan': 'Status perkawinan anggota (contoh: Kawin, Janda/Duda)',
+    'kewarganegaraan': 'Kewarganegaraan anggota (contoh: Indonesia)',
+    'niy_nigk': 'Nomor Induk Yayasan/Nomor Induk Guru dan Karyawan (contoh: \'9524778717\')',
+    'npsn': 'Nomor Pokok Sekolah Nasional dalam format int64 (contoh: 20507662)',
+    'sekolah_id': 'ID sekolah dalam format int64 (contoh: 20501574)',
+    'instansi_id': 'ID instansi (contoh: \'\')',
+    'dapodik_sekolah_id': 'ID Dapodik sekolah (contoh: C080CBF0-8B18-E111-B6FA-B72E8DC4E109)',
+    'is_aktif_sekolah': 'Status aktif atau tidaknya sekolah dalam format int64 (contoh: 1)',
+    'is_aktif': 'Status aktif atau tidaknya anggota dalam format int64 (contoh: 1)',
+    'nrg': 'Nomor Registrasi Guru dalam format object (contoh: \'8612637719\')',
+    'thn_sertifikasi': 'Tahun sertifikasi anggota dalam format float64 (contoh: 2023.0)',
+    'mapel_sertifikasi': 'Mapel yang disertifikasi oleh anggota (contoh: \'[2017-187] KIMIA\')',
+    'last_access': 'Waktu terakhir akses anggota dalam format object (contoh: \'2024-02-12 04:22:29\')',
+    'status_aktif': 'Status aktif atau tidaknya anggota (contoh: Aktif)',
+    'status_sinkron': 'Status sinkronisasi data (contoh: Sinkron)',
+    'jenis_ptk_kelompok': 'Jenis PTK kelompok (contoh: Pengajar/Guru)',
+    'mapel_ajar_dapodik': 'Mata pelajaran yang diajar dalam Dapodik (contoh: Alat Industri Kimia)',
+    'k_kota': 'Kode Kota dalam format int64 (contoh: 3524)',
+    'instansi_tugas': 'Instansi atau sekolah tempat anggota bertugas (contoh: \'\', \'SMP ISLAM MIFTAHUSSURUR\')',
+    'instansi_npsn_tugas': 'Nomor Pokok Sekolah Nasional tempat anggota bertugas dalam format float64 (contoh: 20515030.0)',
+    'paspor_id': 'Nomor paspor anggota dalam format int64 (contoh: 1800011)',
+    'bentuk_pendidikan': 'Bentuk pendidikan tempat anggota bekerja (contoh: KB, SD)',
+    'sumber_data': 'Sumber data yang digunakan untuk mengisi dataset (contoh: Migrasi/Dapodik)',
+    'kota_status_3t': 'Status 3T kota tempat tinggal anggota (contoh: \'-\')',
+    'jenis_keluar': 'Jenis keluar anggota dari komunitas (contoh: Aktif, Alih Fungsi)',
+    'tmp_lahir': 'Tempat lahir anggota (contoh: GRESIK)',
+    'tgl_lahir': 'Tanggal lahir anggota dalam format object (contoh: \'1988-07-27\')',
+    'status_aktif_sekolah': 'Status aktif Sekolah (contoh: Ya)',
+    'sektor_vokasi': 'Sektor vokasi atau bidang pekerjaan (contoh: Hospitality)',
+    'naungan': 'Naungan atau lembaga yang menjadi otoritas anggota (contoh: Kemendikbud)',
+    'sekolah_akreditasi': 'Status akreditasi sekolah (contoh: A)',
+    'lembaga_akreditasi': 'Lembaga akreditasi yang memberikan akreditasi (contoh: BAN-SM)',
+    'tahun_terdaftar': 'Tahun terdaftar anggota dalam format int64 (contoh: 2023)',
+    'asal_sekolah_jenis_naungan': 'Jenis naungan sekolah asal anggota (contoh: Dinas Pendidikan Kabupaten/Kota)',
+    'asal_sekolah_naungan': 'Naungan sekolah asal anggota (contoh: Dinas Pendidikan Kab. Ponorogo)',
+    'status_sertifikasi': 'Status sertifikasi anggota (contoh: Sudah, Belum)',
+    'status_nuptk': 'Status Nuptk anggota (contoh: Sudah, Belum)'
+}

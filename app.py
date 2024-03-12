@@ -9,15 +9,18 @@ import os
 from PIL import Image
 # from langchain.llms import LlamaCpp
 import psycopg2
-from pandasai.prompts import AbstractPrompt
-from agent import MyPandasAgent, MyCorrectErrorPrompt, MyResponseParser
+# from agent import MyPandasAgent, MyCorrectErrorPrompt, MyResponseParser
 from utils import gen_json_response
 from pandasai.helpers.openai_info import get_openai_callback
 from dotenv import load_dotenv
-
+from langchain.llms.ollama import Ollama
+from pandasai.connectors import PandasConnector
 load_dotenv()
-
+from pandasai.responses.response_parser import ResponseParser
 llm = OpenAI(api_token="")
+# llm = Ollama(model="deepseek-coder:6.7b-instruct", temperature=0, base_url='')
+from pandasai.connectors.pandas import PandasConnectorConfig
+
 user = os.getenv('DB_USER')
 password = os.getenv('DB_PASS')
 host = os.getenv('DB_HOST')
@@ -67,7 +70,13 @@ The final result is as follows:
     return gen_json_response(data=res_data)
 
 OUTPUT_GPAPH_FOLDER = '.exports_charts$$/'
+class MyResponseParser(ResponseParser):
 
+    def __init__(self, context) -> None:
+        super().__init__(context)
+    def format_plot(self, result: dict):
+        return result["value"]
+    
 def init_graph_folder():
     if not os.path.isdir(OUTPUT_GPAPH_FOLDER):
         os.makedirs(OUTPUT_GPAPH_FOLDER)
@@ -76,12 +85,13 @@ def main():
     st.title('Data - Analytics')
 
     mode = st.selectbox('Pilih Mode Input Data:', ('SQL', 'CSV'))
-
+    with open('metadata.txt', 'r') as file:
+        metadata = file.read()
     if mode == 'SQL':
         st.subheader('SQL')
         dataframe = pd.read_sql('SELECT * FROM komunitas_anggota_jatim.anggota', conn)
         conn.close()
-
+        connector = PandasConnector(PandasConnectorConfig(original_df=dataframe), field_descriptions=metadata)
         init_graph_folder()
         st.session_state
         if "data_objects" not in st.session_state:
@@ -95,8 +105,6 @@ def main():
                     if data_object["message"] == message:
                         if isinstance(data_object["data"], str) and OUTPUT_GPAPH_FOLDER in data_object["data"]:
                             st.image(data_object["data"])
-        with open('Deskripsi Kolom.txt', 'r') as file:
-            metadata = file.read()
         if prompt := st.chat_input("Ask me about data..."):
             st.session_state.messages.append({"question":"user","answer":prompt})
             with st.chat_message("user"):
@@ -104,15 +112,14 @@ def main():
             with st.chat_message("assistant"):
                 # change to MyPandasAgent if want to use multi table conversation (less acc so far)
                 # description="Deskripsi kolom: domisili_kota_kabupaten = nama kota atau kabupaten anggota komunitas tinggal, kota = kota atau kabupaten sekolah berada, kualifikasi = kualifikasi pendidikan terakhir anggota komunitas",
-                df = SmartDataframe(dataframe, description=metadata,
+                df = Agent([connector],
                                    config={"llm": llm, "save_charts_path": OUTPUT_GPAPH_FOLDER,
                     "save_charts": True,                   
                     # "response_parser": StreamlitResponse,
                     "enable_cache": False,
                     # "enforce_privacy": True,
-                    "custom_whitelisted_dependencies": ["pyecharts"],
-                    "custom_prompts": {
-                        "correct_error": MyCorrectErrorPrompt(),},
+                    # "custom_prompts": {
+                    #     "correct_error": MyCorrectErrorPrompt(),},
                         "response_parser": MyResponseParser
                     })
                 # "6. if the question is related to a previous question, relate the answer to the context of the previous question-answer.\n" \
@@ -123,6 +130,7 @@ def main():
                     "3. Interpret the prompt first, then adjust it to the existing metadata dataframes.\n" \
                     "4. When generating code, keep using the original data and do not use mock data. When filtering data, ALWAYS USE the LIKE method or str.contains, DONT USE exact match.\n" \
                     "5. If the question is related to drawing, always save the plots and use the saved plots.\n" \
+                    "6. ALWAYS TRANSLATE question in Bahasa Indonesia based on Dataframe.\n" \
                     "Based on the above requirements, please answer the following question:\n"
                 question = f"{question_prompt}{prompt}"
                 with get_openai_callback() as cb:
@@ -196,6 +204,8 @@ def main():
                     "3. Interpret the prompt first, then adjust it to the existing metadata dataframes.\n" \
                     "4. When generating code, keep using the original data and do not use mock data. When filtering data, ALWAYS USE the LIKE method or str.contains, DONT USE exact match.\n" \
                     "5. If the question is related to drawing, always save the plots and use the saved plots.\n" \
+                    # "6. ALWAYS TRANSLATE question in Bahasa Indonesia based on Dataframe.\n" \
+                    # "7. Note: kelamin (L = Laki-laki, P = Perempuan), kota (kota atau kabupaten sekolah berada), domisili_kota_kabupaten (nama kota atau kabupaten anggota komunitas tinggal, domisili), kualifikasi (kualifikasi pendidikan terakhir anggota komunitas), status_perkawinan (status pernikahan anggota komunitas, janda = perempuan, duda = laki-laki).\n" \
                     "Based on the above requirements, please answer the following question:\n"
                     question = f"{question_prompt}{prompt}"
                     answer = df.chat(question)
